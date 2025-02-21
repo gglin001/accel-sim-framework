@@ -1,0 +1,9 @@
+{
+    "files.insertFinalNewline": false,
+    "files.trimTrailingWhitespace": false,
+    "terminal.integrated.env.linux": {
+        "ACCELSIM_CONFIG": "debug",
+        "GPGPUSIM_ROOT": "${workspaceFolder}/gpu-simulator/gpgpu-sim_distribution",
+        "CUDA_INSTALL_PATH": "/usr/local/cuda",
+    }
+}
