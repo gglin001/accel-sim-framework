@@ -18,3 +18,9 @@ cmake --build build
 cmake --build build --target install
 
 ###############################################################################
+
+pushd build/gpgpu-sim_distribution
+ln -s libcudart.so libcudart.so.12
+popd
+
+###############################################################################
