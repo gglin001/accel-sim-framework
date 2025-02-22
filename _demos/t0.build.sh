@@ -24,6 +24,7 @@ rm install.sh
 micromamba create -n pyenv python=3.12 -y
 echo "micromamba activate pyenv" >>~/.bashrc
 
+apt install bc
 pip install cmake ninja
 micromamba install git bison
 
@@ -40,5 +41,6 @@ git clone --depth 1 -b master https://github.com/pybind/pybind11.git gpu-simulat
 cmake --preset osx -Sgpu-simulator
 
 cmake --build build
+cmake --build build --target install
 
 ###############################################################################
