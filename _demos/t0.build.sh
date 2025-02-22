@@ -32,7 +32,7 @@ micromamba install git bison
 # micromamba install zlib
 # apt update
 apt install libz-dev
-apt install libgl-dev
+# apt install libgl-dev
 
 git clone --depth 1 -b master https://github.com/pybind/pybind11.git gpu-simulator/extern/pybind11
 
