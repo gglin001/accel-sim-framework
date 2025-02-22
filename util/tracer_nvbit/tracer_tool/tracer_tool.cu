@@ -33,7 +33,7 @@
 
 /* Channel used to communicate from GPU to CPU receiving thread */
 #define CHANNEL_SIZE (1l << 20)
-static __managed__ ChannelDev channel_dev;
+static __managed__ ChannelDev* channel_dev;
 static ChannelHost channel_host;
 
 /* receiving thread and its control variables */
@@ -257,7 +257,7 @@ void instrument_function_if_needed(CUcontext ctx, CUfunction func) {
         nvbit_add_call_arg_const_val64(instr, imm_value);
 
         /* add pointer to channel_dev and other counters*/
-        nvbit_add_call_arg_const_val64(instr, (uint64_t)&channel_dev);
+        nvbit_add_call_arg_const_val64(instr, (uint64_t)channel_dev);
         nvbit_add_call_arg_const_val64(instr,
                                        (uint64_t)&total_dynamic_instr_counter);
         nvbit_add_call_arg_const_val64(
@@ -279,10 +279,10 @@ __global__ void flush_channel() {
    * completed */
   inst_trace_t ma;
   ma.cta_id_x = -1;
-  channel_dev.push(&ma, sizeof(inst_trace_t));
+  channel_dev->push(&ma, sizeof(inst_trace_t));
 
   /* flush channel */
-  channel_dev.flush();
+  channel_dev->flush();
 }
 
 static FILE *resultsFile = NULL;
@@ -726,7 +726,8 @@ void *recv_thread_fun(void *) {
 
 void nvbit_tool_init(CUcontext ctx) {
   recv_thread_started = true;
-  channel_host.init(0, CHANNEL_SIZE, &channel_dev, NULL);
+  cudaMallocManaged(&channel_dev, sizeof(ChannelDev));
+  channel_host.init(0, CHANNEL_SIZE, channel_dev, NULL);
   pthread_create(&recv_thread, NULL, recv_thread_fun, NULL);
 }
 
