@@ -5,10 +5,11 @@
     "terminal.integrated.env.linux": {
         "EXT_PATH": "${workspaceFolder}/build",
         "EXT_PYTHONPATH": "${workspaceFolder}/build",
-        // "EXT_LD_LIBRARY_PATH": "/usr/local/cuda/lib64;/usr/local/cuda/compat",
+        // "EXT_LD_LIBRARY_PATH": "/usr/local/cuda/lib64:/usr/local/cuda/compat",
         // "EXT_LD_LIBRARY_PATH": "${workspaceFolder}/gpu-simulator/gpgpu-sim_distribution/lib/debug",
         "EXT_LD_LIBRARY_PATH": "${workspaceFolder}/build/gpgpu-sim_distribution",
         //
+        "GPGPUSIM_SETUP_ENVIRONMENT_WAS_RUN": "1",
         "ACCELSIM_ROOT": "${workspaceFolder}/gpu-simulator",
         "ACCELSIM_CONFIG": "debug",
         "GPGPUSIM_ROOT": "${workspaceFolder}/gpu-simulator/gpgpu-sim_distribution",
@@ -20,6 +21,7 @@
         "PTX_SIM_KERNELFILE": "_1.ptx",
         "CUOBJDUMP_SIM_FILE": "jj",
         //
+        "CUDA_LAUNCH_BLOCKING": "1",
         // "PTX_SIM_DEBUG": "100",
         "PTX_SIM_DEBUG": "3",
         //
