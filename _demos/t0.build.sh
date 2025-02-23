@@ -12,6 +12,9 @@ git clone --depth 1 -b master https://github.com/pybind/pybind11.git gpu-simulat
 
 ###############################################################################
 
+rm -rf build/CMakeCache.txt
+rm -rf build/CMakeFiles
+
 cmake --preset osx -Sgpu-simulator
 
 cmake --build build

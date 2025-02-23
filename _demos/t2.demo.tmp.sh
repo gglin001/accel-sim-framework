@@ -31,9 +31,14 @@ popd
 #####
 
 pushd _demos/tmp
-echo "ACCELSIM_ROOT: $ACCELSIM_ROOT"
-LD_LIBRARY_PATH="$ACCELSIM_ROOT/../build/gpgpu-sim_distribution" ./main \
+./main \
   2>&1 0>&1 | tee gpgpu-sim_distribution.log
 popd
+
+# pushd _demos/tmp
+# echo "ACCELSIM_ROOT: $ACCELSIM_ROOT"
+# LD_LIBRARY_PATH="$ACCELSIM_ROOT/../build/gpgpu-sim_distribution" ./main \
+#   2>&1 0>&1 | tee gpgpu-sim_distribution.log
+# popd
 
 ###############################################################################
