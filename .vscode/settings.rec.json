@@ -4,13 +4,15 @@
     "terminal.integrated.env.linux": {
         "EXT_PATH": "${workspaceFolder}/build",
         "EXT_PYTHONPATH": "${workspaceFolder}/build",
-        // 
+        //
         "ACCELSIM_ROOT": "${workspaceFolder}/gpu-simulator",
         "ACCELSIM_CONFIG": "debug",
         "GPGPUSIM_ROOT": "${workspaceFolder}/gpu-simulator/gpgpu-sim_distribution",
         "CUDA_INSTALL_PATH": "/usr/local/cuda",
-        // 
-        "PTX_SIM_DEBUG": "100",
+        //
+        // "PTX_SIM_DEBUG": "100",
+        "PTX_SIM_DEBUG": "3",
+        //
         "CUDA_VERSION_NUMBER": "12080",
         "PTX_SIM_USE_PTX_FILE": "1.ptx",
         "PTX_SIM_KERNELFILE": "_1.ptx",
